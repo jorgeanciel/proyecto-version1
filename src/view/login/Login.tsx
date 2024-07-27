@@ -1,48 +1,52 @@
-import { Box, Stack, SvgIcon, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Link,
+  Stack,
+  SvgIcon,
+  TextField,
+  Typography,
+} from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Login = () => {
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          pt: 3,
-        }}
-      >
-        <Typography variant="h5">Bienvenidos a</Typography>
-        <Typography variant="h2">SisFact</Typography>
-      </Box>
-
-      <Box component="form">
+      <Stack spacing={2} alignItems="center">
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
             alignItems: "center",
+            pt: 3,
           }}
         >
-          <SvgIcon fontSize="large">
-            <AccountCircleIcon />
-          </SvgIcon>
-          <Typography>Inicia Secion</Typography>
+          <Typography variant="h5">Bienvenidos a</Typography>
+          <Typography variant="h2">SisFact</Typography>
         </Box>
-        <Stack
-          sx={{
-            alignItems: "center",
-            alignContent: "center",
-            py: "50px",
-            width: "100%",
-          }}
-          spacing={2}
-        >
-          <TextField label="Ingrese Correo" />
-          <TextField label="Ingrese Contraseña" />
+
+        <Stack spacing={2}>
+          <Stack alignContent="center" alignItems="center">
+            <SvgIcon fontSize="large">
+              <AccountCircleIcon />
+            </SvgIcon>
+            <Typography>Inicia Secion</Typography>
+            <Typography>
+              ¿No tienes una cuenta?{" "}
+              <Link underline="hover" href="/login-form">
+                Ingresa
+              </Link>
+            </Typography>
+          </Stack>
+          <Stack spacing={2} component="form">
+            <TextField label="Correo" />
+            <TextField label="Contraseña" />
+            <Button type="submit" variant="contained">
+              Ingresar
+            </Button>
+          </Stack>
         </Stack>
-      </Box>
+      </Stack>
     </>
   );
 };
